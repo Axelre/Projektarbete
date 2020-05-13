@@ -1,11 +1,19 @@
 body
 {
     background-color: #E0FFFF;
+
 }
 
 #container
 {
     text-align: center;
+}
+
+.header{
+    color:white;
+    background-color: black;
+    height: 40px;
+
 }
 
 
@@ -20,5 +28,48 @@ body
  }
 
  .row{
+     
+    margin-right: -15px;
+    margin-left: -15px;
+    margin: auto;
+    line-height: 20px;
+    box-sizing: border-box;
+    display: block;
+    float: none;
+    height: 1579px;
+    width: 1200px;
+    position: static;
+    z-index: auto;
+    background-color: #5a5a5a;
+    }
 
- }
+.col-lg-6{
+
+    width: 50%;
+    height: 1045.9px;
+    float: left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    box-sizing: border-box;
+
+}
+.frame{
+ 
+ width: 100%;
+ height: 75%;
+ margin-top: 5px;
+ padding: 20px;
+ border: 1px solid #DCDBDB;
+ border-radius: 10px;
+ margin-bottom: 20px;
+ box-sizing: border-box;
+
+}
+
+
+
+h2{text-align: center;}
+
+
