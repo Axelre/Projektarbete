@@ -19,8 +19,8 @@ overflow: hidden;
 .btn{
     display: block;
     padding: 16px 20px;
-    background: coral ;
-    color: black;
+    background:black ;
+    color: white;
     position: relative;
 }
 .btn:before{
@@ -28,13 +28,13 @@ overflow: hidden;
     position: absolute;
     width:14px;
     height:14px;
-    background: coral;
+    background:black;
     left:20px;
     bottom:-7px;
     transform:rotate(45deg);
 }
 .smenu{
-    background: pink;
+    background:white;
     overflow:hidden;
     transition:max-height 0.3s;
     max-height:0;
@@ -42,7 +42,7 @@ overflow: hidden;
 .smenu a{
     display:block;
     padding:16px 26px;
-    color: white;
+    color: black;
     font-size:14px;
     margin:4px 0;
     position: relative;
@@ -53,7 +53,7 @@ overflow: hidden;
     position: absolute;
     width: 6px;
     height: 100%;
-    background: cyan;
+    background: white;
     left: 0;
     top: 0;
     transition:0.3s;
@@ -74,10 +74,31 @@ overflow: hidden;
 }
 .topnav{
     text-align: right;
-    padding-right: 70px;
+    padding-right: 100px;
+    background-color: black;
 }
  .topnav a{
     padding: 14px 16px;
     text-decoration: none;
     font-size: 17px;
+    color:white;
  }
+ .articles{
+     padding-right: 50px;
+     width:700px;
+     text-align: center;
+     float :right;
+     height:478px;
+     padding-left:30px;
+ }
+ .filter{
+     padding-left: 30px;
+ }
+ .header{
+     color:white;
+     background-color: black;
+     height: 40px;
+
+ }
+ 
+
