@@ -43,8 +43,21 @@
               
                              </div>
 
-                             <div class="messages">
-                               
+                             <div class="messages"><hr>
+                              <form method=post action="/cgi-bin/guestBook.pl">
+                              <input type=hidden name=fields value="Message">
+                              Message: <br></br>
+                              <textarea name=Comments rows=5 cols=60 color=white;>
+                              </textarea>
+                              <br>
+                              <input type=submit value="Submit" width=10px height=20px;>
+                              </form>
+                              <hr noshade>
+                              <div class="showmessages">
+
+                                
+                              </div>
+
 
                              </div>
               
