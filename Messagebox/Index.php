@@ -29,7 +29,7 @@
 
      include("db.php");
 
-     $sql = "SELECT * from entries ORDER BY ID DESC"
+     $sql = "SELECT * from entries ORDER BY ID DESC";
      $stmt = $db->query($sql);
      $stmt->execute();
      $stmt->setFetchMode(PDO::FETCH_ASSOC);
