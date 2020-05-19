@@ -7,44 +7,43 @@
 <body>
     <?php
 
+     date_default_timezone_set('Europe/Stockholm');
      echo "<form action='' method='POST'>
      Message: <br></br>
      <textarea name=Message rows=5 cols=60 color=white;>
      </textarea>
      <br>
-     <input type='submit' name='submitBtn' value='Send Entry'>
+     <input type='submit' name='submitBtn' value='Post'>
      </form>
      ";
 
+
+
+
      if(isset($_POST['submitBtn'])){
-         $message = $_POST['message'];
-         $date = date("y-m-d");
+         $message = $_POST['Message'];
+         $date = date('Y-m-d H:i:s');    
          include("db.php");
-         $sql = "INSERT INTO entries (message, date) VALUES ('$message', '$date')";
-         $stmt = $db->query($sql);
-         $stmt->execute();
-         echo "Success!";
+         $sql = "INSERT INTO messagebox (message, date) VALUES ('$message', '$date')";
+         $db->query($sql);
 
      }
 
      include("db.php");
-
-     $sql = "SELECT * from entries ORDER BY ID DESC";
+     $sql = "SELECT * from messagebox ORDER BY ID DESC";
      $stmt = $db->query($sql);
      $stmt->execute();
      $stmt->setFetchMode(PDO::FETCH_ASSOC);
-     if($stmt->rowCount() > 0){
-         while($row = $stmt->fetch())
-         {
-             echo "
+     while($row = $stmt->fetch())
+     {
+
+     echo "
              <b>#</b>".$row['ID']."
-             ".$row['Time']."
              ".$row['Date']."
              <hr noshade>
              ".$row['Message']."
              <hr noshade>
               ";
-         }
      }
 
      ?>
