@@ -3,7 +3,10 @@
     <head>
         <title>Login Shoebox</title>
         <link rel="stylesheet" href="loginstyle.css?v=1.1">
-        <?php include 'database.php';?>
+        <?php include 'Database.php';
+        include 'Databaseinfo.php';
+        ?>
+        
     </head>
     <body>
         <script>
@@ -25,7 +28,7 @@
                     <button type="button" onclick="addLoginForm();" class="toggle-btn">Log In</button>
                     <button type="button" onclick="addCreateUserForm();" class="toggle-btn">Register</button>
                 </div>
-                <form id="CreateUserForm">
+                <form id="CreateUserForm" class="formclass" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                     <h4>E-Mail : </h4>
                     <input class="inp" type="text" placeholder="Enter E-mail" name="email" required>  <br />
                     <h4>Username : </h4>
@@ -35,19 +38,19 @@
                     <h4>Password : </h4>
                     <input class="inp" type="password" placeholder="Enter Password" name="password" required>  <br />
                     <input type ="submit" name ="btnCreate" value="Create Your User"> <br />
+                    <span class="error" style="color: red"> <?php echo $formError;?></span> <br />
+                    <span class="error" style="color: red"> <?php echo $emailError;?></span> <br />
+                    <span class="error" style="color: red"> <?php echo $phoneError;?></span>
+                    <span class="success" style="color: green"> <?php echo $formSucces;?></span> <br />
                 </form>
                 <form id="LoginForm">
                     <h4>E-Mail : </h4>
-                    <input class="inp" type="text" placeholder="Enter E-mail" name="email" required>  <br />
+                    <input class="inp" type="text" placeholder="Enter E-mail" name="existing_user_email" required>  <br />
                     <h4>Password : </h4>
-                    <input class="inp" type="password" placeholder="Enter Password" name="password" required>  <br />
+                    <input class="inp" type="password" placeholder="Enter Password" name="existing_user_password" required>  <br />
                     <input type ="submit" name ="btnLogin" value="Login"> <br />
                 </form>
             </div>
-            <form class="input-group">
-
-
-            </form>
         </div>
     </body>
 </html>

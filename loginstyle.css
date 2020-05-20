@@ -1,4 +1,4 @@
-*{
+Body{
     margin: 0;
     padding: 0;
     background: brown;
@@ -43,4 +43,14 @@
     background: linear-gradient(to right, #ff10ff, #ffad06);
     border-radius: 30px;
     transition: .5s;
+}
+
+#CreateUserForm
+{
+    display: none;
+}
+
+#LoginForm
+{
+    display: none;
 }
