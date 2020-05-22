@@ -44,21 +44,20 @@
                              </div>
 
                              <div class="messages"><hr>
-                              <form method=post action="/cgi-bin/guestBook.pl">
-                              <input type=hidden name=fields value="Message">
-                              Message: <br></br>
-                              <textarea name=Comments rows=5 cols=60 color=white;>
-                              </textarea>
-                              <br>
-                              <input type=submit value="Submit" width=10px height=20px;>
-                              </form>
-                              <hr noshade>
+                              <form method='POST' action='messagebox.php'>
+                                Message: <br></br>
+                                <textarea name=Message rows=5 cols=60 color=white;>
+                                </textarea>
+                                <br>
+                                <br></br>
+                                <input type='submit' name='submitBtn' value='Send Message'>
+                                </form>
                               <div class="showmessages">
-
-                                
+                                <br></br>
+                                <form action='messagebox.php'>
+                                <input type='submit' name='Showmessages' value='Show messages'>
+                              </form>
                               </div>
-
-
                              </div>
               
 

@@ -100,5 +100,14 @@ overflow: hidden;
      height: 40px;
 
  }
+
+ .bigsquare{
+
+     width: 800px;
+     margin: auto;
+     height: 800px;
+     background-color: grey;
+
+ }
  
 
