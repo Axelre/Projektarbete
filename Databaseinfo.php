@@ -1,16 +1,28 @@
 <?php
-        require("database.php");
-        $Phonenumber = $_POST['phonenumber'];
-        $Username = test_input($_POST['username']);
-        $Email = test_input($_POST['email']);
-        $Password = $_POST['password'];
-        $salt = random_bytes(8);
-        $salt_password = md5($salt.$password);
-        global $phoneError;
-        global $formError;
-        global $formSucces;
-        global $emailError;
-        
+    global $phoneError;
+    global $formError;
+    global $formSucces;
+    global $emailError;
+
+    if (isset($_POST['btnCreate'])) 
+    {
+        createAccount();
+        return;
+    }
+
+    if (isset($_POST['btnLogin']))
+    {
+        getLogin();
+        return;
+    }
+
+    function createAccount() 
+        {
+            require("database.php");
+            $Phonenumber = $_POST['phonenumber'];
+            $Username = test_input($_POST['username']);
+            $Email = test_input($_POST['email']);
+            $Password = $_POST['password'];
         if(empty($Phonenumber) || empty($Username) || empty($Email) || empty($Password))
         {
             $formError = "please fill in every box";
@@ -27,16 +39,38 @@
             }
             else
             {
-                $statement =$db->prepare("INSERT INTO User (Username , Email , Phone, Password, Salt) VALUES (:username , :email , :phone , :password , :salt)");
+                $statement =$db->prepare("INSERT INTO User (Username , Email , Phone, Password) VALUES (:username , :email , :phone , :password)");
+
                 $statement->bindParam(':username', $Username);
                 $statement->bindParam(':email', $Email);
                 $statement->bindParam(':phone', $Phonenumber);
-                $statement->bindParam(':password', $salt_password);
-                $statement->bindParam(':salt', $salt);
-                $statement->execute();
+                $statement->bindParam(':password', $Password);
                 $formSucces = "Your Account has been created!";
+                $statement->execute();
             }
         }
+    }
+
+    function getLogin()
+    {
+        require("database.php");
+        $uid = $_POST['uid'];
+        $pwd = $_POST['pwd'];
+        $sql = "SELECT * FROM User WHERE Username='$uid' AND Password='$pwd'";
+        $result = $db->query($sql);
+        if("SELECT * FROM $result" > 0){
+        if($row = $result->fetchArray(SQLITE3_ASSOC)){
+            $_SESSION['User_id'] = $row['User_id'];
+            exit();
+        }
+        }
+        else exit();
+    }
+    function userLogout(){
+        session_start();
+        session_destroy();
+        exit();
+    }
 
     function test_input($data) 
     {

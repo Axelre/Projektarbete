@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="loginstyle.css?v=1.1">
         <?php include 'Database.php';
         include 'Databaseinfo.php';
+        session_start();
         ?>
         
     </head>
@@ -43,12 +44,21 @@
                     <span class="error" style="color: red"> <?php echo $phoneError;?></span>
                     <span class="success" style="color: green"> <?php echo $formSucces;?></span> <br />
                 </form>
-                <form id="LoginForm">
-                    <h4>E-Mail : </h4>
-                    <input class="inp" type="text" placeholder="Enter E-mail" name="existing_user_email" required>  <br />
+                
+
+                <form id="LoginForm" class="formclass" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
+                    <h4>Username : </h4>
+                    <input class="inp" type="text" placeholder="Enter Username" name="uid" required>  <br />
                     <h4>Password : </h4>
-                    <input class="inp" type="password" placeholder="Enter Password" name="existing_user_password" required>  <br />
+                    <input class="inp" type="password" placeholder="Enter Password" name="pwd" required>  <br />
                     <input type ="submit" name ="btnLogin" value="Login"> <br />
+                    <?php
+                    if(isset($_SESSION['User_id'])){
+                        echo "You are logged in";
+                    }
+                    else echo"You are not logged in";
+
+                    ?>
                 </form>
             </div>
         </div>
